@@ -1,0 +1,33 @@
+# Lists all features from the model with manual (first digit) and automatic (second digit) selection
+# 0 = deselected, 1 = selected, 2 = undefined
+21doubledash
+21GameEngine
+22ColorblindMode
+21Language
+12German
+20English
+21Controls
+11WASD
+11Arrows
+22Scoreboard
+21Weapons
+12Knife
+12Bow
+12Staff
+11Chainsaw
+21Characters
+22Rambo
+22Gandalf
+12Bob
+12Chantal
+21Playercount
+20One
+12Two
+21Difficulty
+12Easy
+20Normal
+20Hard
+21Direction
+12LeftToRight
+20RightToLeft
+22Obstacles

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+	<featureModel chosenLayoutAlgorithm="1">
+		<struct>
+			<and abstract="true" mandatory="true" name="doubledash">
+				<description>
+					Name des Spiels, 2D-Shooter, Seitenansicht
+				</description>
+				<and mandatory="true" name="GameEngine">
+					<description>
+						Kern des Spiels, Handhabt die Spielelogik (Schussabfeuern, Spawning)
+					</description>
+					<feature name="ColorblindMode">
+						<description>
+							Für Menschen mit Rotgrün-Schwäche. Andere Farbwahl // Jeder 10. hat eine RG-Schwäche
+						</description>
+					</feature>
+				</and>
+				<alt abstract="true" mandatory="true" name="Language">
+					<description>
+						Sprachwahl für Texte
+					</description>
+					<feature mandatory="true" name="German"/>
+					<feature mandatory="true" name="English"/>
+				</alt>
+				<or mandatory="true" name="Controls">
+					<description>
+						Steuerung der Spielerfigur, Standard: Leertaste = Schuss
+						Q = Waffenwechsel
+						
+					</description>
+					<feature mandatory="true" name="WASD">
+						<description>
+							Bewegungssteuerung mit WASD
+						</description>
+					</feature>
+					<feature mandatory="true" name="Arrows">
+						<description>
+							Beweggungssteuerung mit Pfeiltasten
+						</description>
+					</feature>
+				</or>
+				<feature name="Scoreboard">
+					<description>
+						Erfassen/Bewertung von Spielerleistungen
+					</description>
+				</feature>
+				<or abstract="true" mandatory="true" name="Weapons">
+					<description>
+						Tools zur Befriedung des Gegners.
+						Unterscheidungsmerkmale:
+						Schaden
+						Reichweite
+						Feuerrate...
+					</description>
+					<feature mandatory="true" name="Knife"/>
+					<feature mandatory="true" name="Bow"/>
+					<feature mandatory="true" name="Staff"/>
+					<feature mandatory="true" name="Chainsaw"/>
+				</or>
+				<or abstract="true" mandatory="true" name="Characters">
+					<description>
+						Spielbare, wählbare Charaktere.
+						Unterscheidung:
+						HP
+						Speed
+						"Aussehen"
+					</description>
+					<feature mandatory="true" name="Rambo"/>
+					<feature mandatory="true" name="Gandalf"/>
+					<feature mandatory="true" name="Bob"/>
+					<feature mandatory="true" name="Chantal"/>
+				</or>
+				<alt abstract="true" mandatory="true" name="Playercount">
+					<description>
+						Spieleranzahl:
+						Singleplayer oder Multiplayer (Arena).
+						Splitscreen*
+						
+					</description>
+					<feature mandatory="true" name="One"/>
+					<feature mandatory="true" name="Two"/>
+				</alt>
+				<alt abstract="true" mandatory="true" name="Difficulty">
+					<description>
+						Einstellung der Schwierigkeit.
+						Anpassung der Gegnerspawnrate
+						Anpassung der Schadenswerte
+						Anpassung der HP
+					</description>
+					<feature mandatory="true" name="Easy"/>
+					<feature mandatory="true" name="Normal"/>
+					<feature mandatory="true" name="Hard"/>
+				</alt>
+				<alt abstract="true" mandatory="true" name="Direction">
+					<description>
+						Spielrichtung, in welche Richtung läuft der Spieler
+					</description>
+					<feature mandatory="true" name="LeftToRight"/>
+					<feature mandatory="true" name="RightToLeft"/>
+				</alt>
+				<feature hidden="true" name="Obstacles">
+					<description>
+						zu überwindende Objekte. (Sprung müsste implentiert werden)
+					</description>
+				</feature>
+			</and>
+		</struct>
+		<constraints>
+			<rule>
+				<imp>
+					<var>Rambo</var>
+					<conj>
+						<var>Bow</var>
+						<var>Knife</var>
+					</conj>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Bob</var>
+					<var>Chainsaw</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Gandalf</var>
+					<var>Staff</var>
+				</imp>
+			</rule>
+			<rule>
+				<imp>
+					<var>Two</var>
+					<conj>
+						<var>WASD</var>
+						<var>Arrows</var>
+					</conj>
+				</imp>
+			</rule>
+		</constraints>
+		<calculations Auto="true" Constraints="true" Features="true" Redundant="true" Tautology="true"/>
+		<comments/>
+		<featureOrder userDefined="false"/>
+	</featureModel>
