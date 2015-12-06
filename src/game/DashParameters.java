@@ -1,136 +1,62 @@
 package game;
 
+import java.util.List;
+
 /**
  * @since 16.11.2015
  */
 public class DashParameters {
 
-    private final CharacterType characterType;
+    private final List<Character> characters;
     private final Difficulty difficulty;
-    private final Direction direction;
-    private final LangType langType;
-    private final NumberOfPlayers numberOfPlayers;
-    private final WeaponType weaponType;
+    private final boolean isLeftToRight;
+    private final Language language;
+    // TODO: Replace this with code dependency
+    private final boolean multiplayer;
+    private final List<Weapon> weapons;
 
-    private DashParameters(CharacterType characterType, Difficulty difficulty, Direction direction, LangType langType, NumberOfPlayers numberOfPlayers, WeaponType weaponType) {
-        this.characterType = characterType;
+    public DashParameters(List<Character> characters, Difficulty difficulty, boolean isLeftToRight, Language language, boolean multiplayer, List<Weapon> weapons) {
+        this.characters = characters;
         this.difficulty = difficulty;
-        this.direction = direction;
-        this.langType = langType;
-        this.numberOfPlayers = numberOfPlayers;
-        this.weaponType = weaponType;
+        this.isLeftToRight = isLeftToRight;
+        this.language = language;
+        this.multiplayer = multiplayer;
+        this.weapons = weapons;
     }
 
-    public CharacterType getCharacterType() {
-        return characterType;
+    public List<Character> getCharacters() {
+        return characters;
     }
 
     public Difficulty getDifficulty() {
         return difficulty;
     }
 
-    public Direction getDirection() {
-        return direction;
+    public boolean isLeftToRight() {
+		return isLeftToRight;
+	}
+
+    public Language getLanguage() {
+        return language;
     }
 
-    public LangType getLangType() {
-        return langType;
-    }
+    public boolean isMultiplayer() {
+		return multiplayer;
+	}
 
-    public NumberOfPlayers getNumberOfPlayers() {
-        return numberOfPlayers;
-    }
-
-    public WeaponType getWeaponType() {
-        return weaponType;
+    public List<Weapon> getWeaponType() {
+        return weapons;
     }
 
     @Override
     public String toString() {
         return "game.DashParameters{" +
-            "characterType=" + characterType +
+            "characterType=" + characters +
             ", difficulty=" + difficulty +
-            ", direction=" + direction +
-            ", langType=" + langType +
-            ", numberOfPlayers=" + numberOfPlayers +
-            ", weaponType=" + weaponType +
+            ", isLeftToRight=" + isLeftToRight +
+            ", language=" + language +
+            ", isMultiplayer=" + multiplayer +
+            ", weapons=" + weapons +
             '}';
-    }
-
-    public static DashParametersBuilder builder() {
-        return new DashParametersBuilder();
-    }
-
-    public static class DashParametersBuilder {
-        private CharacterType characterType;
-        private Difficulty difficulty;
-        private Direction direction;
-        private LangType langType;
-        private NumberOfPlayers numberOfPlayers;
-        private WeaponType weaponType;
-
-        private DashParametersBuilder() {
-            this.characterType = CharacterType.RAMBO;
-            this.difficulty = Difficulty.NORMAL;
-            this.direction = Direction.LEFT_2_RIGHT;
-            this.langType = LangType.ENGLISH;
-            this.numberOfPlayers = NumberOfPlayers.ONE;
-            this.weaponType = WeaponType.KNIFE;
-        }
-
-        public DashParametersBuilder character(String characterName) {
-            this.characterType = CharacterType.valueOf(characterName.toUpperCase());
-            return this;
-        }
-
-        public DashParametersBuilder difficulty(String difficultyName) {
-            this.difficulty = Difficulty.valueOf(difficultyName.toUpperCase());
-            return this;
-        }
-
-        public DashParametersBuilder direction(String directionName) {
-            this.direction = Direction.valueOf(directionName.toUpperCase());
-            return this;
-        }
-
-        public DashParametersBuilder langType(String languageName) {
-            this.langType = LangType.valueOf(languageName);
-            return this;
-        }
-
-        public DashParametersBuilder numberOfPlayers(int numberOfPlayers) {
-            this.numberOfPlayers = NumberOfPlayers.get(numberOfPlayers);
-            return this;
-        }
-
-        public DashParametersBuilder weapon(String weaponName) {
-            this.weaponType = WeaponType.valueOf(weaponName.toUpperCase());
-            return this;
-        }
-
-        public DashParameters build() {
-            return new DashParameters(characterType, difficulty, direction, langType, numberOfPlayers, weaponType);
-        }
-
-        public String getValueOfParameter(String[] params, String parameterName) {
-            for (int i = 0; i < params.length; i++) {
-                if (params[i].equals(parameterName)) {
-                    if ((i + 1) >= params.length)
-                        throw new RuntimeException("There is no value for " + parameterName);
-                    else
-                        return params[i + 1];
-                }
-            }
-
-            return null;
-        }
-
-        public boolean isParameterPresent(String[] params, String parameterName) {
-        	for (String string : params) {
-				if (string.equals(parameterName))
-					return true;
-        	}
-            return false;
-        }
     }
 }

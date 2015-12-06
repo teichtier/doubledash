@@ -15,8 +15,6 @@ public class MainGui extends JFrame {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(new MyCanvas());
 		setVisible(true);
-		
-		
 	}
 	    
 }

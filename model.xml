@@ -26,7 +26,6 @@
 					<description>
 						Steuerung der Spielerfigur, Standard: Leertaste = Schuss
 						Q = Waffenwechsel
-						
 					</description>
 					<feature mandatory="true" name="WASD">
 						<description>
@@ -75,7 +74,6 @@
 						Spieleranzahl:
 						Singleplayer oder Multiplayer (Arena).
 						Splitscreen*
-						
 					</description>
 					<feature mandatory="true" name="One"/>
 					<feature mandatory="true" name="Two"/>

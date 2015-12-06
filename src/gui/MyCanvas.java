@@ -36,11 +36,11 @@ public class MyCanvas extends JPanel {
 		gc.drawImage(backgroundImage, 0, 0, null);
 
 		BufferedImage weaponImage = Utils.loadImage(Main.parameters
-				.getWeaponType().getSpriteName());
+				.getWeaponType().get(0).getSpriteName());
 		gc.drawImage(weaponImage, xPlayer + weaponOffset, yPlayer, null);
 
 		BufferedImage characterImage = Utils.loadImage(Main.parameters
-				.getCharacterType().getSpriteName());
+				.getCharacters().get(0).getSpriteName());
 		gc.drawImage(characterImage, xPlayer, yPlayer, null);
 
 		BufferedImage badGuyImage = Utils.loadImage("enemy.png");
