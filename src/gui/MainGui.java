@@ -11,8 +11,8 @@ public class MainGui extends JFrame {
 
 	public MainGui() {
 		super("DoubleDash");
-		setSize(640, 480);
-		
+		setSize(800, 600);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		add(new MyCanvas());
 		setVisible(true);
 		
