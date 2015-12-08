@@ -17,6 +17,7 @@ public class MyCanvas extends JPanel {
 
 	private static final long serialVersionUID = 1L;
 	private Background background;
+	private MyUi ui;
 	
 	public MyCanvas() {
 		try {
@@ -24,6 +25,7 @@ public class MyCanvas extends JPanel {
 		} catch (Exception e1) {
 			throw new RuntimeException(e1);
 		}
+		this.ui = new MyUi();
 	} 
 	
 	public void onKeyPress(KeyEvent event) {
@@ -83,6 +85,8 @@ public class MyCanvas extends JPanel {
 
 		BufferedImage badGuyImage = Utils.loadImage("enemy.png");
 		gc.drawImage(badGuyImage, xEnemy, yEnemy, null);
+		
+		this.ui.draw(gc);
 	}
 
 }
