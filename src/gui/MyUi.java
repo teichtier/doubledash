@@ -1,41 +1,40 @@
 package gui;
 
+import game.Main;
+import game.controlls.IControlls;
+import game.language.ILanguage;
+
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.event.KeyEvent;
 
 public class MyUi {
 
-	public MyUi() {
+	private final String rightInfo;
+	private final String leftInfo;
 
+	public MyUi() {
+		ILanguage lang = Main.parameters.getLanguage();
+		IControlls controlls = Main.parameters.getControlls();
+
+		String rightInfo = lang.getMoveRight() + ": ";
+		String leftInfo = lang.getMoveLeft() + ": ";
+
+		if (Main.parameters.getControlls().useArrows()) {
+			rightInfo += lang.getArrowRightKey();
+			leftInfo += lang.getArrowLeftKey();
+		} else {
+			rightInfo += KeyEvent.getKeyText(controlls.keyCodeMoveRight());
+			leftInfo += KeyEvent.getKeyText(controlls.keyCodeMoveLeft());
+		}
+
+		this.rightInfo = rightInfo;
+		this.leftInfo = leftInfo;
 	}
 
 	public void draw(Graphics g) {
-		String rightInfo;
-		String leftInfo;
-		// #if English
-		// #if Arrows
-		// @ rightInfo = "Move right: Right Arrow";
-		// @ leftInfo = "Move left: Left Arrow";
-		// #endif
-		// #if WASD
-//@		rightInfo = "Move right: D";
-//@		leftInfo = "Move left: A";
-		// #endif
-//@
-		// #endif
 
-		// #if German
-		// #if Arrows
-//@		 rightInfo = "Nach rechts: Pfeil rechts";
-//@		 leftInfo = "Nach links: Pfeil links";
-		// #endif
-		// #if WASD
-		 rightInfo = "Nach rechts: D";
-		 leftInfo = "Nach links: A";
-		// #endif
-		// #endif
-		
 		Color prevCol = g.getColor();
 		Font prevFont = g.getFont();
 		g.setColor(Color.RED);
