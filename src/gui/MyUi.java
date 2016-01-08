@@ -19,20 +19,20 @@ public class MyUi {
 		// @ leftInfo = "Move left: Left Arrow";
 		// #endif
 		// #if WASD
-		rightInfo = "Move right: D";
-		leftInfo = "Move left: A";
+//@		rightInfo = "Move right: D";
+//@		leftInfo = "Move left: A";
 		// #endif
-
+//@
 		// #endif
 
 		// #if German
 		// #if Arrows
-		// @ rightInfo = "Nach rechts: Pfeil rechts";
-		// @ leftInfo = "Nach links: Pfeil links";
+//@		 rightInfo = "Nach rechts: Pfeil rechts";
+//@		 leftInfo = "Nach links: Pfeil links";
 		// #endif
 		// #if WASD
-		// @ rightInfo = "Nach rechts: D";
-		// @ leftInfo = "Nach links: A";
+		 rightInfo = "Nach rechts: D";
+		 leftInfo = "Nach links: A";
 		// #endif
 		// #endif
 		

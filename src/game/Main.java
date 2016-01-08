@@ -23,7 +23,7 @@ public class Main {
        
         boolean isLeftToRight = true;
 		// #if RightToLeft
-        isLeftToRight = false;
+//@        isLeftToRight = false;
         // #endif     
     	parameters = new DashParameters(character, difficulty, isLeftToRight, language, isMultiplayer, weapons);
         System.out.println(parameters);
@@ -37,7 +37,7 @@ public class Main {
         // #endif
         
         // #if Rambo
-//@    	characters.add(new Character("Rambo", 50, "rambo.png"));
+    	characters.add(new Character("Rambo", 50, "rambo.png"));
         // #endif
         
         // #if Bob
@@ -45,7 +45,7 @@ public class Main {
         // #endif
         
         // #if Chantal
-        characters.add(new Character("Chantal", 75, "chantal.png"));
+//@        characters.add(new Character("Chantal", 75, "chantal.png"));
         // #endif
         
         return characters;
@@ -58,7 +58,7 @@ public class Main {
     	// #endif
     	
     	// #if Bow
-//@    	weapons.add(new Weapon("Bow", 10, 10, "bow.png"));
+    	weapons.add(new Weapon("Bow", 10, 10, "bow.png"));
     	// #endif
     	
     	// #if Staff
@@ -80,22 +80,22 @@ public class Main {
     	
     	
     	// #if Normal
-//@    	return new Difficulty("Normal", 20, 5000);
+    	return new Difficulty("Normal", 20, 5000);
     	// #endif
     	
     	// #if Hard
-    	return new Difficulty("Hard", 30, 2500);
+//@    	return new Difficulty("Hard", 30, 2500);
     	// #endif
     }
     
     private static Language getLanguage() {
     	
     	// #if German
-//@    	return new Language("German");
+    	return new Language("German");
     	// #endif
     	
     	// #if English
-    	return new Language("English");
+//@    	return new Language("English");
     	// #endif
     }
 
