@@ -2,8 +2,6 @@ package game;
 
 import game.CharacterPool;
 import game.WeaponInventory;
-import game.controlls.IControlls;
-import game.controlls.WASDControlls;
 import game.language.German;
 import game.language.ILanguage;
 import gui.MainGui;
@@ -17,7 +15,6 @@ public class Main {
 		CharacterPool charPool = new CharacterPool();
 		Difficulty difficulty = getDifficulty();
 		ILanguage language = getLanguage();
-		IControlls controlls = getControlls();
 		WeaponInventory weaponInventory = new WeaponInventory();
 
 		boolean isMultiplayer = false;
@@ -30,7 +27,7 @@ public class Main {
 		// @ isLeftToRight = false;
 		// #endif
 		parameters = new DashParameters(charPool, difficulty, isLeftToRight,
-				language, isMultiplayer, weaponInventory, controlls);
+				language, isMultiplayer, weaponInventory);
 		System.out.println(parameters);
 		new MainGui();
 	}
@@ -60,17 +57,4 @@ public class Main {
 		// @ return new English();
 		// #endif
 	}
-
-	private static IControlls getControlls() {
-
-		// #if Arrows
-		// @ return new ArrowControlls();
-		// #endif
-
-		// #if WASD
-		return new WASDControlls();
-		// #endif
-
-	}
-
 }

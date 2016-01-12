@@ -2,11 +2,9 @@ package gui;
 
 import game.Main;
 import game.Utils;
-import game.controlls.IControlls;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 
 import javax.swing.JPanel;
@@ -27,37 +25,6 @@ public class MyCanvas extends JPanel {
 	}
 
 	public void onKeyPress(KeyEvent event) {
-		int rightKey = 0;
-		// #if WASD
-		rightKey = KeyEvent.VK_D;
-		// #endif
-		// #if Arrows
-		// @ rightKey = KeyEvent.VK_RIGHT;
-		// #endif
-		if (event.getKeyCode() == rightKey) {
-			this.moveForward();
-		}
-
-		int leftKey = 0;
-		// #if WASD
-		leftKey = KeyEvent.VK_A;
-		// #endif
-		// #if Arrows
-		// @ leftKey = KeyEvent.VK_LEFT;
-		// #endif
-		if (event.getKeyCode() == leftKey) {
-			this.moveBackward();
-		}
-
-		IControlls controlls = Main.parameters.getControlls();
-		if (event.getKeyCode() == controlls.keyCodeWeaponChange()) {
-			this.changeWeapon();
-		}
-		
-		if (event.getKeyCode() == controlls.keyCodeCharacterChange()) {
-			this.changeCharacter();
-		}
-
 		repaint();
 	}
 

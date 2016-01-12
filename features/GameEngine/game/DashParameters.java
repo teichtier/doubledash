@@ -2,7 +2,6 @@ package game;
 
 import game.CharacterPool;
 import game.WeaponInventory;
-import game.controlls.IControlls;
 import game.language.ILanguage;
 
 /**
@@ -17,18 +16,16 @@ public class DashParameters {
 	// TODO: Replace this with code dependency
 	private final boolean multiplayer;
 	private final WeaponInventory weaponInventory;
-	private final IControlls controlls;
 
 	public DashParameters(CharacterPool charPool, Difficulty difficulty,
 			boolean isLeftToRight, ILanguage language, boolean multiplayer,
-			 WeaponInventory weaponInventory, IControlls controlls) {
+			WeaponInventory weaponInventory) {
 		this.charPool = charPool;
 		this.difficulty = difficulty;
 		this.isLeftToRight = isLeftToRight;
 		this.language = language;
 		this.multiplayer = multiplayer;
 		this.weaponInventory = weaponInventory;
-		this.controlls = controlls;
 	}
 
 	public CharacterPool getCharacters() {
@@ -54,9 +51,9 @@ public class DashParameters {
 	public WeaponInventory getWeapons() {
 		return weaponInventory;
 	}
-
-	public IControlls getControlls() {
-		return controlls;
+	
+	public boolean useArrow() {
+		return false;
 	}
 
 	@Override
@@ -64,7 +61,6 @@ public class DashParameters {
 		return "game.DashParameters{" + "characterType=" + charPool
 				+ ", difficulty=" + difficulty + ", isLeftToRight="
 				+ isLeftToRight + ", language=" + language + ", isMultiplayer="
-				+ multiplayer + ", weapons=" + weaponInventory + ", controlls="
-				+ controlls + '}';
+				+ multiplayer + ", weapons=" + weaponInventory + "}";
 	}
 }
