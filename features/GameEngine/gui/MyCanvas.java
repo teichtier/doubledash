@@ -53,6 +53,10 @@ public class MyCanvas extends JPanel {
 		if (event.getKeyCode() == controlls.keyCodeWeaponChange()) {
 			this.changeWeapon();
 		}
+		
+		if (event.getKeyCode() == controlls.keyCodeCharacterChange()) {
+			this.changeCharacter();
+		}
 
 		repaint();
 	}
@@ -67,6 +71,10 @@ public class MyCanvas extends JPanel {
 
 	private void changeWeapon() {
 		Main.parameters.getWeapons().selectNextWeapon();
+	}
+	
+	private void changeCharacter() {
+		Main.parameters.getCharacters().switchToNextCharacter();
 	}
 
 	@Override
@@ -96,7 +104,7 @@ public class MyCanvas extends JPanel {
 		gc.drawImage(weaponImage, xPlayer + weaponOffset, yPlayer, null);
 
 		BufferedImage characterImage = Utils.loadImage(Main.parameters
-				.getCharacters().get(0).getSpriteName());
+				.getCharacters().getCurrentCharacter().getSpriteName());
 		gc.drawImage(characterImage, xPlayer, yPlayer, null);
 
 		BufferedImage badGuyImage = Utils.loadImage("enemy.png");

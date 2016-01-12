@@ -15,6 +15,10 @@ public class ArrowControlls implements IControlls{
 	public int keyCodeWeaponChange() {
 		return KeyEvent.VK_NUMPAD0;
 	}
+	
+	public int keyCodeCharacterChange() {
+		return KeyEvent.VK_NUMPAD1;
+	}
 
 	public boolean useArrows() {
 		return true;

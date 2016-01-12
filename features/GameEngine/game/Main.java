@@ -1,5 +1,6 @@
 package game;
 
+import game.CharacterPool;
 import game.WeaponInventory;
 import game.controlls.IControlls;
 import game.controlls.WASDControlls;
@@ -7,16 +8,13 @@ import game.language.German;
 import game.language.ILanguage;
 import gui.MainGui;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Main {
 
 	public static DashParameters parameters;
 
 	public static void main(String[] args) {
 
-		List<Character> character = getCharacter();
+		CharacterPool charPool = new CharacterPool();
 		Difficulty difficulty = getDifficulty();
 		ILanguage language = getLanguage();
 		IControlls controlls = getControlls();
@@ -31,31 +29,10 @@ public class Main {
 		// #if RightToLeft
 		// @ isLeftToRight = false;
 		// #endif
-		parameters = new DashParameters(character, difficulty, isLeftToRight,
+		parameters = new DashParameters(charPool, difficulty, isLeftToRight,
 				language, isMultiplayer, weaponInventory, controlls);
 		System.out.println(parameters);
 		new MainGui();
-	}
-
-	private static List<Character> getCharacter() {
-		List<Character> characters = new ArrayList<Character>();
-		// #if Gandalf
-		// @ characters.add(new Character("Gandalf", 100, "gandalf.png"));
-		// #endif
-
-		// #if Rambo
-		characters.add(new Character("Rambo", 50, "rambo.png"));
-		// #endif
-
-		// #if Bob
-		// @ characters.add(new Character("Bob", 25, "bob.png"));
-		// #endif
-
-		// #if Chantal
-		// @ characters.add(new Character("Chantal", 75, "chantal.png"));
-		// #endif
-
-		return characters;
 	}
 
 	private static Difficulty getDifficulty() {

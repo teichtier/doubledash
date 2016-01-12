@@ -1,17 +1,16 @@
 package game;
 
+import game.CharacterPool;
 import game.WeaponInventory;
 import game.controlls.IControlls;
 import game.language.ILanguage;
-
-import java.util.List;
 
 /**
  * @since 16.11.2015
  */
 public class DashParameters {
 
-	private final List<Character> characters;
+	private final CharacterPool charPool;
 	private final Difficulty difficulty;
 	private final boolean isLeftToRight;
 	private final ILanguage language;
@@ -20,10 +19,10 @@ public class DashParameters {
 	private final WeaponInventory weaponInventory;
 	private final IControlls controlls;
 
-	public DashParameters(List<Character> characters, Difficulty difficulty,
+	public DashParameters(CharacterPool charPool, Difficulty difficulty,
 			boolean isLeftToRight, ILanguage language, boolean multiplayer,
 			 WeaponInventory weaponInventory, IControlls controlls) {
-		this.characters = characters;
+		this.charPool = charPool;
 		this.difficulty = difficulty;
 		this.isLeftToRight = isLeftToRight;
 		this.language = language;
@@ -32,8 +31,8 @@ public class DashParameters {
 		this.controlls = controlls;
 	}
 
-	public List<Character> getCharacters() {
-		return characters;
+	public CharacterPool getCharacters() {
+		return charPool;
 	}
 
 	public Difficulty getDifficulty() {
@@ -62,7 +61,7 @@ public class DashParameters {
 
 	@Override
 	public String toString() {
-		return "game.DashParameters{" + "characterType=" + characters
+		return "game.DashParameters{" + "characterType=" + charPool
 				+ ", difficulty=" + difficulty + ", isLeftToRight="
 				+ isLeftToRight + ", language=" + language + ", isMultiplayer="
 				+ multiplayer + ", weapons=" + weaponInventory + ", controlls="
