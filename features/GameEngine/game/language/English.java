@@ -29,4 +29,8 @@ public class English implements ILanguage {
 	public String getArrowRightKey() {
 		return "Arrow right";
 	}
+
+	public String getChangeWeapon() {
+		return "Change weapon";
+	}
 }

@@ -22,4 +22,7 @@ public class German implements ILanguage {
 		return "Pfeil Rechts";
 	}
 
+	public String getChangeWeapon() {
+		return "Waffe wechseln";
+	}
 }

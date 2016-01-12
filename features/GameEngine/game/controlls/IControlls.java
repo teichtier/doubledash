@@ -5,5 +5,7 @@ public interface IControlls {
 
 	int keyCodeMoveLeft();
 	
+	int keyCodeWeaponChange();
+	
 	boolean useArrows();
 }

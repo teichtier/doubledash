@@ -10,4 +10,6 @@ public interface ILanguage {
 	String getArrowLeftKey();
 	String getArrowRightKey();
 	
+	String getChangeWeapon();
+	
 }

@@ -11,6 +11,10 @@ public class WASDControlls implements IControlls {
 	public int keyCodeMoveLeft() {
 		return KeyEvent.VK_A;
 	}
+	
+	public int keyCodeWeaponChange() {
+		return KeyEvent.VK_Q;
+	}
 
 	public boolean useArrows() {
 		return false;

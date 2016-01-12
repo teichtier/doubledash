@@ -13,6 +13,7 @@ public class MyUi {
 
 	private final String rightInfo;
 	private final String leftInfo;
+	private final String changeWeaponInfo;
 
 	public MyUi() {
 		ILanguage lang = Main.parameters.getLanguage();
@@ -31,6 +32,9 @@ public class MyUi {
 
 		this.rightInfo = rightInfo;
 		this.leftInfo = leftInfo;
+
+		this.changeWeaponInfo = lang.getChangeWeapon() + " : "
+				+ KeyEvent.getKeyText(controlls.keyCodeWeaponChange());
 	}
 
 	public void draw(Graphics g) {
@@ -41,6 +45,7 @@ public class MyUi {
 		g.setFont(prevFont.deriveFont(32.0F));
 		g.drawString(rightInfo, 200, 50);
 		g.drawString(leftInfo, 200, 80);
+		g.drawString(changeWeaponInfo, 200, 105);
 		g.setColor(prevCol);
 		g.setFont(prevFont);
 	}

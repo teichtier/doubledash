@@ -2,14 +2,12 @@ package gui;
 
 import game.Main;
 import game.Utils;
+import game.controlls.IControlls;
 
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
-
-
-
 
 import javax.swing.JPanel;
 
@@ -18,7 +16,7 @@ public class MyCanvas extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private Background background;
 	private MyUi ui;
-	
+
 	public MyCanvas() {
 		try {
 			this.background = new Background(Utils.loadImage("background.png"));
@@ -26,31 +24,49 @@ public class MyCanvas extends JPanel {
 			throw new RuntimeException(e1);
 		}
 		this.ui = new MyUi();
-	} 
-	
+	}
+
 	public void onKeyPress(KeyEvent event) {
 		int rightKey = 0;
 		// #if WASD
-		rightKey = KeyEvent.VK_D;	
+		rightKey = KeyEvent.VK_D;
 		// #endif
 		// #if Arrows
-//@				rightKey = KeyEvent.VK_RIGHT;
+		// @ rightKey = KeyEvent.VK_RIGHT;
 		// #endif
 		if (event.getKeyCode() == rightKey) {
-			background.move(5);
+			this.moveForward();
 		}
-		
+
 		int leftKey = 0;
 		// #if WASD
-		leftKey = KeyEvent.VK_A;	
+		leftKey = KeyEvent.VK_A;
 		// #endif
 		// #if Arrows
-//@				leftKey = KeyEvent.VK_LEFT;
+		// @ leftKey = KeyEvent.VK_LEFT;
 		// #endif
 		if (event.getKeyCode() == leftKey) {
-			background.move(-5);
+			this.moveBackward();
 		}
+
+		IControlls controlls = Main.parameters.getControlls();
+		if (event.getKeyCode() == controlls.keyCodeWeaponChange()) {
+			this.changeWeapon();
+		}
+
 		repaint();
+	}
+
+	private void moveForward() {
+		this.background.move(5);
+	}
+
+	private void moveBackward() {
+		this.background.move(-5);
+	}
+
+	private void changeWeapon() {
+		Main.parameters.getWeapons().selectNextWeapon();
 	}
 
 	@Override
@@ -85,7 +101,7 @@ public class MyCanvas extends JPanel {
 
 		BufferedImage badGuyImage = Utils.loadImage("enemy.png");
 		gc.drawImage(badGuyImage, xEnemy, yEnemy, null);
-		
+
 		this.ui.draw(gc);
 	}
 
