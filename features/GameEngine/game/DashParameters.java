@@ -1,5 +1,6 @@
 package game;
 
+import game.WeaponInventory;
 import game.controlls.IControlls;
 import game.language.ILanguage;
 
@@ -16,18 +17,18 @@ public class DashParameters {
 	private final ILanguage language;
 	// TODO: Replace this with code dependency
 	private final boolean multiplayer;
-	private final List<Weapon> weapons;
+	private final WeaponInventory weaponInventory;
 	private final IControlls controlls;
 
 	public DashParameters(List<Character> characters, Difficulty difficulty,
 			boolean isLeftToRight, ILanguage language, boolean multiplayer,
-			List<Weapon> weapons, IControlls controlls) {
+			 WeaponInventory weaponInventory, IControlls controlls) {
 		this.characters = characters;
 		this.difficulty = difficulty;
 		this.isLeftToRight = isLeftToRight;
 		this.language = language;
 		this.multiplayer = multiplayer;
-		this.weapons = weapons;
+		this.weaponInventory = weaponInventory;
 		this.controlls = controlls;
 	}
 
@@ -51,8 +52,8 @@ public class DashParameters {
 		return multiplayer;
 	}
 
-	public List<Weapon> getWeaponType() {
-		return weapons;
+	public WeaponInventory getWeapons() {
+		return weaponInventory;
 	}
 
 	public IControlls getControlls() {
@@ -64,7 +65,7 @@ public class DashParameters {
 		return "game.DashParameters{" + "characterType=" + characters
 				+ ", difficulty=" + difficulty + ", isLeftToRight="
 				+ isLeftToRight + ", language=" + language + ", isMultiplayer="
-				+ multiplayer + ", weapons=" + weapons + ", controlls="
+				+ multiplayer + ", weapons=" + weaponInventory + ", controlls="
 				+ controlls + '}';
 	}
 }

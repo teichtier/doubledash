@@ -76,7 +76,7 @@ public class MyCanvas extends JPanel {
 		background.draw(gc);
 
 		BufferedImage weaponImage = Utils.loadImage(Main.parameters
-				.getWeaponType().get(0).getSpriteName());
+				.getWeapons().getSelectedWeapon().getSpriteName());
 		gc.drawImage(weaponImage, xPlayer + weaponOffset, yPlayer, null);
 
 		BufferedImage characterImage = Utils.loadImage(Main.parameters

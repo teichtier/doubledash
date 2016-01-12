@@ -1,5 +1,6 @@
 package game;
 
+import game.WeaponInventory;
 import game.controlls.IControlls;
 import game.controlls.WASDControlls;
 import game.language.German;
@@ -16,10 +17,10 @@ public class Main {
 	public static void main(String[] args) {
 
 		List<Character> character = getCharacter();
-		List<Weapon> weapons = getWeapon();
 		Difficulty difficulty = getDifficulty();
 		ILanguage language = getLanguage();
 		IControlls controlls = getControlls();
+		WeaponInventory weaponInventory = new WeaponInventory();
 
 		boolean isMultiplayer = false;
 		// #if Multiplayer
@@ -31,7 +32,7 @@ public class Main {
 		// @ isLeftToRight = false;
 		// #endif
 		parameters = new DashParameters(character, difficulty, isLeftToRight,
-				language, isMultiplayer, weapons, controlls);
+				language, isMultiplayer, weaponInventory, controlls);
 		System.out.println(parameters);
 		new MainGui();
 	}
@@ -55,27 +56,6 @@ public class Main {
 		// #endif
 
 		return characters;
-	}
-
-	private static List<Weapon> getWeapon() {
-		List<Weapon> weapons = new ArrayList<Weapon>();
-		// #if Knife
-		weapons.add(new Weapon("Knife", 100, 1, "knife.png"));
-		// #endif
-
-		// #if Bow
-		weapons.add(new Weapon("Bow", 10, 10, "bow.png"));
-		// #endif
-
-		// #if Staff
-		// @ weapons.add(new Weapon("Staff", 50, 5, "staff.png"));
-		// #endif
-
-		// #if Chainsaw
-		// @ weapons.add(new Weapon("Chainsaw", 75, 2, "chainsaw.png"));
-		// #endif
-
-		return weapons;
 	}
 
 	private static Difficulty getDifficulty() {
