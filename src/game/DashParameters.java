@@ -1,8 +1,5 @@
 package game;
 
-import game.CharacterPool;
-import game.WeaponInventory;
-import game.language.ILanguage;
 
 /**
  * @since 16.11.2015
@@ -12,18 +9,16 @@ public class DashParameters {
 	private final CharacterPool charPool;
 	private final Difficulty difficulty;
 	private final boolean isLeftToRight;
-	private final ILanguage language;
 	// TODO: Replace this with code dependency
 	private final boolean multiplayer;
 	private final WeaponInventory weaponInventory;
 
 	public DashParameters(CharacterPool charPool, Difficulty difficulty,
-			boolean isLeftToRight, ILanguage language, boolean multiplayer,
+			boolean isLeftToRight,boolean multiplayer,
 			WeaponInventory weaponInventory) {
 		this.charPool = charPool;
 		this.difficulty = difficulty;
 		this.isLeftToRight = isLeftToRight;
-		this.language = language;
 		this.multiplayer = multiplayer;
 		this.weaponInventory = weaponInventory;
 	}
@@ -38,10 +33,6 @@ public class DashParameters {
 
 	public boolean isLeftToRight() {
 		return isLeftToRight;
-	}
-
-	public ILanguage getLanguage() {
-		return language;
 	}
 
 	public boolean isMultiplayer() {
@@ -60,7 +51,7 @@ public class DashParameters {
 	public String toString() {
 		return "game.DashParameters{" + "characterType=" + charPool
 				+ ", difficulty=" + difficulty + ", isLeftToRight="
-				+ isLeftToRight + ", language=" + language + ", isMultiplayer="
+				+ isLeftToRight + ", isMultiplayer="
 				+ multiplayer + ", weapons=" + weaponInventory + "}";
 	}
 }

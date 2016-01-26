@@ -65,7 +65,7 @@ public class MyCanvas extends JPanel {
 		int weaponOffset = 20;
 
 		background.draw(gc);
-
+/*
 		BufferedImage weaponImage = Utils.loadImage(Main.parameters
 				.getWeapons().getSelectedWeapon().getSpriteName());
 		gc.drawImage(weaponImage, xPlayer + weaponOffset, yPlayer, null);
@@ -76,7 +76,7 @@ public class MyCanvas extends JPanel {
 
 		BufferedImage badGuyImage = Utils.loadImage("enemy.png");
 		gc.drawImage(badGuyImage, xEnemy, yEnemy, null);
-
+*/
 		this.ui.draw(gc);
 	}
 

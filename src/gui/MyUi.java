@@ -1,8 +1,5 @@
 package gui;
 
-import game.Main;
-import game.language.ILanguage;
-
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -11,33 +8,12 @@ import java.awt.event.KeyEvent;
 
 public class MyUi {
 
-	private final String rightInfo;
-	private final String leftInfo;
-	private final String changeWeaponInfo;
-	private final String changeCharInfo;
+	private String rightInfo;
+	private String leftInfo;
+	private String changeWeaponInfo;
+	private String changeCharInfo;
 
 	public MyUi() {
-		ILanguage lang = Main.parameters.getLanguage();
-
-		String rightInfo = lang.getMoveRight() + ": ";
-		String leftInfo = lang.getMoveLeft() + ": ";
-
-		if (Main.parameters.useArrow()) {
-			rightInfo += lang.getArrowRightKey();
-			leftInfo += lang.getArrowLeftKey();
-		} else {
-			rightInfo += KeyEvent.getKeyText(getKeyRight());
-			leftInfo += KeyEvent.getKeyText(getKeyLeft());
-		}
-
-		this.rightInfo = rightInfo;
-		this.leftInfo = leftInfo;
-
-		this.changeWeaponInfo = lang.getChangeWeapon() + " : "
-				+ KeyEvent.getKeyText(getKeyWeaponChange());
-
-		this.changeCharInfo = lang.getChangeWeapon() + " : "
-				+ KeyEvent.getKeyText(getKeyCharChange());
 	}
 
 	private int getKeyLeft() {

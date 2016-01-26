@@ -14,7 +14,7 @@
 				</dictionary>
 				<dictionary>
 					<key>composer</key>
-					<value>de.ovgu.featureide.composer.featurehouse</value>
+					<value>de.ovgu.featureide.core.composer.aspectj</value>
 				</dictionary>
 				<dictionary>
 					<key>equations</key>
@@ -27,13 +27,19 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>org.eclipse.jdt.core.javabuilder</name>
+			<name>org.eclipse.ajdt.core.ajbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>core.eclipse.ajdt.core.ajbuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>de.ovgu.featureide.core.featureProjectNature</nature>
+		<nature>org.eclipse.ajdt.ui.ajnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>de.ovgu.featureide.core.featureProjectNature</nature>
 	</natures>
 </projectDescription>

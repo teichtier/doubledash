@@ -2,8 +2,6 @@ package game;
 
 import game.CharacterPool;
 import game.WeaponInventory;
-import game.language.German;
-import game.language.ILanguage;
 import gui.MainGui;
 
 public class Main {
@@ -14,7 +12,6 @@ public class Main {
 
 		CharacterPool charPool = new CharacterPool();
 		Difficulty difficulty = getDifficulty();
-		ILanguage language = getLanguage();
 		WeaponInventory weaponInventory = new WeaponInventory();
 
 		boolean isMultiplayer = false;
@@ -27,7 +24,7 @@ public class Main {
 		// @ isLeftToRight = false;
 		// #endif
 		parameters = new DashParameters(charPool, difficulty, isLeftToRight,
-				language, isMultiplayer, weaponInventory);
+				isMultiplayer, weaponInventory);
 		System.out.println(parameters);
 		new MainGui();
 	}
@@ -44,17 +41,6 @@ public class Main {
 
 		// #if Hard
 		// @ return new Difficulty("Hard", 30, 2500);
-		// #endif
-	}
-
-	private static ILanguage getLanguage() {
-
-		// #if German
-		return new German();
-		// #endif
-
-		// #if English
-		// @ return new English();
 		// #endif
 	}
 }
